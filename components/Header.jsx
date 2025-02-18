@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +8,7 @@ const Header = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
 
     return (
         <div className="">

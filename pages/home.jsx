@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import freelancerLottie from '../src/assets/anim/Animation - 1739867836556.json'
 import { useState } from "react";
 import JobCatagory from "./JobCatagory";
-
+import Featured from "./Featured";
 
 const Home = () => {
 
@@ -131,9 +131,14 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="md:w-10/12 mx-auto">
+            <div className="md:w-10/12 mx-auto -mt-10">
                 <JobCatagory></JobCatagory>
             </div>
+            <div>
+                <Featured></Featured>
+            </div>
+
+
         </div>
 
     );

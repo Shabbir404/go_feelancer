@@ -1,0 +1,92 @@
+/* animations.css */
+
+/* Existing animations remain the same */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Snake border animation */
+@keyframes moveBorder {
+    0% {
+        background-position: 0 0, 0 100%, 0 0, 100% 0;
+    }
+    100% {
+        background-position: 100% 0, -100% 100%, 0 -100%, 100% 100%;
+    }
+}
+
+/* Animation classes */
+.animate-fade-up {
+    animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.animate-reveal-left {
+    animation: revealLeft 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.container-reveal {
+    opacity: 0;
+    animation: scaleIn 1s ease-out forwards;
+}
+
+/* Snake border styles */
+.animate-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, #1967D2 50%, transparent 50%) repeat-x,
+                linear-gradient(90deg, #1967D2 50%, transparent 50%) repeat-x,
+                linear-gradient(0deg, #1967D2 50%, transparent 50%) repeat-y,
+                linear-gradient(0deg, #1967D2 50%, transparent 50%) repeat-y;
+    background-size: 20px 2px, 20px 2px, 2px 20px, 2px 20px;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    animation: moveBorder 5s infinite linear;
+    border-radius: 1rem; /* Rounded corners for a softer look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for better visual depth */
+}
+
+/* Ensuring the content stays above the border */
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    background: white;
+    margin: 2px;
+    border-radius: 1rem; /* Consistent rounded corners */
+}
