@@ -46,13 +46,13 @@ const Header = () => {
                         <div className="hidden lg:flex items-center space-x-6">
                             <Link
                                 to="/upload-cv"
-                                className="text-gray-600 hover:text-blue-600 transition-colors"
+                                className=" text-blue-400 hover:text-blue-600 transition-colors"
                             >
                                 Upload your CV
                             </Link>
                             <Link
                                 to="/login"
-                                className="bg-gray-200 hover:text-blue-700 text-blue-500 p-2 rounded-md transition-colors"
+                                className="bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-500 p-2 rounded-md transition-colors"
                             >
                                 Login / Register
                             </Link>
