@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "date": "2025-02-19",
+        "comments": 12,
+        "title": "Attract Sales And Profits",
+        "description": "A job ravenously while Far much that one rank beheld after outside....",
+        "readMore": true,
+        "url": "https://images.pexels.com/photos/5650041/pexels-photo-5650041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 2,
+        "date": "2025-02-18",
+        "comments": 24,
+        "title": "Boost Your Online Presence",
+        "description": "Increased visibility is key to attracting more clients and growing your brand...",
+        "readMore": true,
+        "url": "https://images.pexels.com/photos/5244025/pexels-photo-5244025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+        "id": 3,
+        "date": "2025-02-17",
+        "comments": 7,
+        "title": "Maximize Your Efficiency",
+        "description": "How to streamline your processes and get more done in less time...",
+        "readMore": true,
+        "url": "https://images.pexels.com/photos/8062358/pexels-photo-8062358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+]

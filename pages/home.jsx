@@ -3,6 +3,7 @@ import freelancerLottie from '../src/assets/anim/Animation - 1739867836556.json'
 import { useState } from "react";
 import JobCatagory from "./JobCatagory";
 import Featured from "./Featured";
+import Article from "./Article";
 
 const Home = () => {
 
@@ -137,7 +138,9 @@ const Home = () => {
             <div>
                 <Featured></Featured>
             </div>
-
+            <div className="mt-10">
+                <Article></Article>
+            </div>
 
         </div>
 
