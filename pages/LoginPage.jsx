@@ -1,7 +1,10 @@
+import { FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
     return (
-        <div>
+        <div className="mt-10">
             <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4">
                 <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                     <h2 className="text-3xl font-semibold text-center text-blue-600 mb-6">Login </h2>
@@ -56,15 +59,17 @@ const LoginPage = () => {
                     {/* Signup and Social Login Links */}
                     <div className="text-center mt-6">
                         <p className="text-sm text-gray-600">
-                            Don`t have an account? <a href="#" className="text-blue-600 hover:underline">Signup</a>
+                            Don`t have an account? <Link to="/signup" className="text-blue-600 hover:underline">Signup</Link>
                         </p>
                     </div>
 
                     <div className="flex items-center justify-center mt-4 space-x-4">
-                        <button className="w-1/2 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300">
+                        <button className=" flex gap-2 cursor-pointer w-1/2 py-3 bg-gray-200 text-blue-500 rounded-md hover:bg-blue-700 hover:text-white transition-all duration-300">
+                            <FaFacebook className="ml-2 mt-1" />
                             Log In via Facebook
                         </button>
-                        <button className="w-1/2 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition-all duration-300">
+                        <button className=" flex gap-4  cursor-pointer w-1/2 py-3 bg-gray-200 text-red-600 rounded-md hover:bg-red-700 hover:text-white transition-all duration-300">
+                            <FcGoogle className="ml-3 size-5 mt-1"></FcGoogle>
                             Log In via Gmail
                         </button>
                     </div>

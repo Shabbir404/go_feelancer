@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 const Article = () => {
 
     const [blog, setBlog] = useState([])
-    const [error, setError] = useState(null);
+    const [error, setError] = useState();
     useEffect(() => {
 
         axios.get('../json/blogs_data.json')
@@ -15,11 +15,11 @@ const Article = () => {
     }, [])
 
     return (
-        <div className='mb-10'>
-            <div className='flex gap-10 w-10/12 mx-auto'>
+        <div className='pb-10'>
+            <div className='md:flex gap-10 w-10/12 mx-auto'>
                 {
                     blog.slice(0, 3).map(post => (
-                        <div key={post.id} className="card bg-base-100 w-96 shadow-xl">
+                        <div key={post.id} className="card bg-base-100 md:mt-0 mt-4 w-96 shadow-xl">
                             <figure className="px-10 pt-10">
                                 <img
                                     src={post.url}

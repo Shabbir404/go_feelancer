@@ -7,7 +7,7 @@ const JobPostPage = () => {
 
         <div>
 
-            <div className="md:mt-40 mt-25  w-11/12 mx-auto">
+            <div className="md:mt-40 mt-25  mb-20 w-11/12 mx-auto">
                 <h1 className="text-center text-gray-400 text-4xl ">You must need to login to view jobs</h1>
 
                 <div className="absolute justify-center pt-10 ml-10 md:ml-30 md:flex gap-6">

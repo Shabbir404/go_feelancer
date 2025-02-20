@@ -10,6 +10,7 @@ import Routes from '../Routes/Routes';
 import Home from '../pages/home';
 import LoginPage from '../pages/LoginPage';
 import JobPostPage from '../pages/JobPostPage';
+import SignupPage from '../pages/SignupPage';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage></LoginPage>
+      },
+      {
+        path: '/signup',
+        element: <SignupPage></SignupPage>
       },
       {
         path: '/jobs',
