@@ -11,6 +11,7 @@ import Home from '../pages/home';
 import LoginPage from '../pages/LoginPage';
 import JobPostPage from '../pages/JobPostPage';
 import SignupPage from '../pages/SignupPage';
+import Context_provider from '../Contexts/Context_provider';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Context_provider>
+      <RouterProvider router={router} />
+    </Context_provider>
   </StrictMode>,
 )
