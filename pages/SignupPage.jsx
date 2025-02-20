@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import AuthContext from "../Contexts/Auth_context";
+import Swal from 'sweetalert2'
 const SignupPage = () => {
 
+    const { creatUser } = useContext(AuthContext)
+
     const [pass, Setpass] = useState(false)
+    const [userOk, setUserOk] = useState()
 
     const handleSignUp = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         const Cassword = e.target.Cpassword.value;
-
-
+        const nameF = e.target.nameFull.value;
 
         if (password && Cassword && password !== Cassword) {
             Setpass(true);
@@ -19,9 +22,21 @@ const SignupPage = () => {
             Setpass(false);
         }
 
+        creatUser(email, password)
+            .then(result => {
+                setUserOk(result);
 
-        console.log(email, pass);
-
+                if (result) {
+                    Swal.fire({
+                        title: `${nameF} your account is created.`,
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Account creation failed:", error);
+            });
     }
 
     return (
@@ -37,7 +52,7 @@ const SignupPage = () => {
                                 Full Name
                             </label>
                             <input
-                                name="name"
+                                name="nameFull"
                                 type="text"
                                 id="fullName"
                                 className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
