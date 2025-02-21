@@ -11,6 +11,7 @@ const SignupPage = () => {
 
     const handleSignUp = (e) => {
         e.preventDefault();
+        const form = e.target;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const Cassword = e.target.Cpassword.value;
@@ -25,13 +26,13 @@ const SignupPage = () => {
         creatUser(email, password)
             .then(result => {
                 setUserOk(result);
-
                 if (result) {
                     Swal.fire({
                         title: `${nameF} your account is created.`,
                         icon: "success",
                         draggable: true
                     });
+                    form.reset()
                 }
             })
             .catch(error => {

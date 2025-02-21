@@ -1,25 +1,65 @@
+import { useContext, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../Contexts/Auth_context";
+import Swal from 'sweetalert2'
 const LoginPage = () => {
+
+    const { signUser } = useContext(AuthContext)
+    const [userSignIn, setUserSignIn] = useState()
+    const navigate = useNavigate()
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        signUser(email, password)
+            .then(result => {
+                setUserSignIn(result.user);
+                if (userSignIn) {
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                if (error.code === 'auth/invalid-email') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid email format.',
+                        text: 'Please enter a valid email.',
+                        footer: '<a href="#">Why do I have this issue?</a>'
+                    });
+                    form.reset()
+                }
+            })
+
+
+
+
+    }
+
+
+
+
     return (
         <div className="mt-10">
             <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4">
                 <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                     <h2 className="text-3xl font-semibold text-center text-blue-600 mb-6">Login </h2>
 
-                    <form>
+                    <form onSubmit={handleLogin}>
                         {/* Username */}
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700" htmlFor="username">
-                                Username
+                                Email
                             </label>
                             <input
+                                name="email"
                                 type="text"
                                 id="username"
                                 className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                placeholder="Enter your username"
+                                placeholder="Enter your email"
                             />
                         </div>
 
@@ -29,6 +69,7 @@ const LoginPage = () => {
                                 Password
                             </label>
                             <input
+                                name="password"
                                 type="password"
                                 id="password"
                                 className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -50,7 +91,7 @@ const LoginPage = () => {
                         {/* Log In Button */}
                         <button
                             type="submit"
-                            className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300"
+                            className="w-full py-3 cursor-pointer bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-300"
                         >
                             Log In
                         </button>
